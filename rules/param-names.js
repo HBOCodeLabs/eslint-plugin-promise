@@ -7,12 +7,19 @@ module.exports = {
 
           if (!params || !params.length) { return }
 
-          if (params[0].name !== 'resolve') {
-            return context.report(node, 'Promise constructor parameters must be named resolve, reject')
-          }
-
-          if (params[1] && params[1].name !== 'reject') {
-            return context.report(node, 'Promise constructor parameters must be named resolve, reject')
+          var defaults = ['resolve', 'reject']
+          for (var i = 0; i < params.length; i++) {
+            var actualName = params[i].name;
+            var expectedName = context.options[i] || defaults[i];
+            if (!expectedName || !expectedName.length) {
+              return context.report(node, 'Promise constructor has unexpected parameter ' + i + ' "' + actualName + '"')
+            }
+            if (typeof expectedName === 'string') {
+              expectedName = [expectedName]
+            }
+            if (expectedName.indexOf(actualName) === -1) {
+              return context.report(node, 'Promise constructor parameter ' + i + ' "' + actualName + '" must be named: ' + expectedName.join(", "))
+            }
           }
         }
       }
