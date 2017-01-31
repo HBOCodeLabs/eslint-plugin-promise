@@ -11,8 +11,8 @@ ruleTester.run('param-names', rule, {
     'new Promise(function(resolve) { })',
 
     // options
-    { code: 'new Promise(function(resolve, reject) { })', options: ['resolve', 'reject']},
-    { code: 'new Promise(function(fulfill, reject, cancel) { })', options: [['resolve', 'fulfill'], 'reject', ['onCancel', 'cancel']]},
+    { code: 'new Promise(function(resolve, reject) { })', options: ['resolve', 'reject'] },
+    { code: 'new Promise(function(fulfill, reject, cancel) { })', options: [['resolve', 'fulfill'], 'reject', ['onCancel', 'cancel']] }
   ],
 
   invalid: [
@@ -31,12 +31,12 @@ ruleTester.run('param-names', rule, {
     {
       code: 'new Promise(function(resolve, reject) { })',
       options: ['fulfill', 'throw'],
-      errors: [ { message: 'Promise constructor parameter 0 "resolve" must be named: fulfill'  } ]
+      errors: [ { message: 'Promise constructor parameter 0 "resolve" must be named: fulfill' } ]
     },
     {
       code: 'new Promise(function(reject, resolve) { })',
       options: [['resolve', 'fulfill'], 'reject'],
-      errors: [ { message: 'Promise constructor parameter 0 "reject" must be named: resolve, fulfill'  } ]
+      errors: [ { message: 'Promise constructor parameter 0 "reject" must be named: resolve, fulfill' } ]
     }
   ]
 })
