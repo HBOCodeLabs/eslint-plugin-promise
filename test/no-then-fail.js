@@ -1,10 +1,10 @@
 'use strict'
 
-var rule = require('../rules/no-then-fail-param')
+var rule = require('../rules/no-then-fail')
 var RuleTester = require('eslint').RuleTester
 var message = 'No .then(success, fail), use .catch'
 var ruleTester = new RuleTester()
-ruleTester.run('no-then-fail-param', rule, {
+ruleTester.run('no-then-fail', rule, {
   valid: [
 
     'frank().then(go)',

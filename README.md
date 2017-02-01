@@ -46,7 +46,7 @@ You can pass an `{ allowThen: true }` as an option to this rule
 You can pass a `{ terminationMethod: 'done' }` as an option to this rule
  to require `done()` instead of `catch()` at the end of the promise chain.
  This is useful for many non-standard Promise implementations.
- 
+
 You can also pass an array of methods such as
  `{ terminationMethod: ['catch',  'asCallback'] }`
 
@@ -73,9 +73,9 @@ myPromise.then(function(val) {});
 myPromise.then(() => { doSomething(); });
 ```
 
-### `no-then-fail-param`
+### `no-then-fail`
 
-Ensures that each `then()` function can only one parameter (the success handler). This avoids a [common anti-pattern](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-thensuccess-fail-anti-pattern).
+Ensures that each `then()` function can only receive one argument (the success handler). This avoids a [common anti-pattern](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-thensuccess-fail-anti-pattern).
 
 #### Valid
 
@@ -117,7 +117,7 @@ You can pass in a variable number of arguments to this rule, and they will overr
 
 // Valid
 new Promise(function (ok, fail) { ... }) // non-standard parameter names
-new Promise(function (ok, error) { ... }) 
+new Promise(function (ok, error) { ... })
 
 // Invalid
 new Promise(function (reject, resolve) { ... }) // standard parameter names
