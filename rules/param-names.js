@@ -9,8 +9,8 @@ module.exports = {
 
           var defaults = ['resolve', 'reject']
           for (var i = 0; i < params.length; i++) {
-            var actualName = params[i].name;
-            var expectedName = context.options[i] || defaults[i];
+            var actualName = params[i].name
+            var expectedName = context.options[i] || defaults[i]
             if (!expectedName || !expectedName.length) {
               return context.report(node, 'Promise constructor has unexpected parameter ' + i + ' "' + actualName + '"')
             }
@@ -18,7 +18,7 @@ module.exports = {
               expectedName = [expectedName]
             }
             if (expectedName.indexOf(actualName) === -1) {
-              return context.report(node, 'Promise constructor parameter ' + i + ' "' + actualName + '" must be named: ' + expectedName.join(", "))
+              return context.report(node, 'Promise constructor parameter ' + i + ' "' + actualName + '" must be named: ' + expectedName.join(', '))
             }
           }
         }

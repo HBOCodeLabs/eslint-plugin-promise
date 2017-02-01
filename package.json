@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-promise",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Enforce best practices for JavaScript promises",
   "keywords": [
     "eslint",
@@ -9,8 +9,8 @@
     "promise",
     "promises"
   ],
-  "author": "jden <jason@denizac.org>",
-  "repository": "git@github.com:xjamundx/eslint-plugin-promise.git",
+  "author": "brendanjc <brendan.clark@hbo.com>",
+  "repository": "git@github.com:HBOCodeLabs/eslint-plugin-promise.git",
   "scripts": {
     "pretest": "standard",
     "test": "mocha test"
