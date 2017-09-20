@@ -1,10 +1,16 @@
 module.exports = {
   rules: {
     'param-names': require('./rules/param-names'),
+    'no-return-wrap': require('./rules/no-return-wrap'),
     'always-return': require('./rules/always-return'),
-    'always-catch': require('./rules/always-catch'),
     'catch-or-return': require('./rules/catch-or-return'),
+    'prefer-await-to-callbacks': require('./rules/prefer-await-to-callbacks'),
+    'prefer-await-to-then': require('./rules/prefer-await-to-then'),
     'no-native': require('./rules/no-native'),
+    'no-callback-in-promise': require('./rules/no-callback-in-promise'),
+    'no-promise-in-callback': require('./rules/no-promise-in-callback'),
+    'no-nesting': require('./rules/no-nesting'),
+    'avoid-new': require('./rules/avoid-new'),
     'no-then-fail': require('./rules/no-then-fail')
   },
   rulesConfig: {
@@ -14,5 +20,20 @@ module.exports = {
     'no-native': 0,
     'catch-or-return': 0,
     'no-then-fail': 0
+  },
+  configs: {
+    recommended: {
+      rules: {
+        'promise/always-return': 'error',
+        'promise/no-return-wrap': 'error',
+        'promise/param-names': 'error',
+        'promise/catch-or-return': 'error',
+        'promise/no-native': 'off',
+        'promise/no-nesting': 'warn',
+        'promise/no-promise-in-callback': 'warn',
+        'promise/no-callback-in-promise': 'warn',
+        'promise/avoid-new': 'warn'
+      }
+    }
   }
 }
